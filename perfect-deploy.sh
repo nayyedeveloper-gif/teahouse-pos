@@ -41,17 +41,16 @@ sudo chown mysql:mysql /var/run/mysqld
 sudo systemctl start mysql
 sleep 3
 
-# Create Database (try without password first, then with common passwords)
+# Create Database
 echo -e "${GREEN}[3/12] Creating database...${NC}"
-mysql -u root << 'EOF' 2>/dev/null || \
-mysql -u root -proot << 'EOF' 2>/dev/null || \
-mysql -u root -ppassword << 'EOF' 2>/dev/null || \
-sudo mysql << 'EOF'
-CREATE DATABASE IF NOT EXISTS teahouse_pos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER IF NOT EXISTS 'teahouse_user'@'localhost' IDENTIFIED BY 'TharchoPOS2024';
-GRANT ALL PRIVILEGES ON teahouse_pos.* TO 'teahouse_user'@'localhost';
-FLUSH PRIVILEGES;
-EOF
+sudo mysql -e "CREATE DATABASE IF NOT EXISTS teahouse_pos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || \
+mysql -u root -e "CREATE DATABASE IF NOT EXISTS teahouse_pos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
+
+sudo mysql -e "CREATE USER IF NOT EXISTS 'teahouse_user'@'localhost' IDENTIFIED BY 'TharchoPOS2024';" 2>/dev/null || \
+mysql -u root -e "CREATE USER IF NOT EXISTS 'teahouse_user'@'localhost' IDENTIFIED BY 'TharchoPOS2024';" 2>/dev/null || true
+
+sudo mysql -e "GRANT ALL PRIVILEGES ON teahouse_pos.* TO 'teahouse_user'@'localhost'; FLUSH PRIVILEGES;" 2>/dev/null || \
+mysql -u root -e "GRANT ALL PRIVILEGES ON teahouse_pos.* TO 'teahouse_user'@'localhost'; FLUSH PRIVILEGES;" 2>/dev/null || true
 
 echo -e "${GREEN}Database ready!${NC}"
 

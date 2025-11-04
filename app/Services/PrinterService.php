@@ -19,8 +19,10 @@ class PrinterService
     private function initializePrinter($connector)
     {
         $escposPrinter = new EscposPrinter($connector);
-        // Set character code page for Myanmar Unicode (UTF-8)
-        $escposPrinter->getPrintConnector()->write("\x1B\x74\x10");
+        // Nippon 808UE: Try UTF-8 mode
+        // ESC t n - Select character code table
+        // Try different codes: 0xFF for UTF-8, 0x00 for default
+        $escposPrinter->getPrintConnector()->write("\x1B\x74\xFF");
         return $escposPrinter;
     }
     /**

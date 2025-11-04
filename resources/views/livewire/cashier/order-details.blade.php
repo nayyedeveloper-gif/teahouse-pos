@@ -151,7 +151,7 @@
                                     <td>
                                         <div>
                                             <p class="font-semibold text-gray-900">{{ $orderItem->item->name }}</p>
-                                            <p class="text-sm text-gray-600 myanmar-text">{{ $orderItem->item->name_mm }}</p>
+                                            <p class="text-sm text-gray-600 myanmar-text" style="display: block !important;">{{ $orderItem->item->name_mm }}</p>
                                             @if($orderItem->notes)
                                                 <p class="text-xs text-gray-500 italic mt-1">{{ $orderItem->notes }}</p>
                                             @endif

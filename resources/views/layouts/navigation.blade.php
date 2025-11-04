@@ -226,17 +226,47 @@
                 <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                     Dashboard
                 </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
+                    Categories
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.items.index')" :active="request()->routeIs('admin.items.*')">
+                    Items
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.tables.index')" :active="request()->routeIs('admin.tables.*')">
+                    Tables
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.orders.index')" :active="request()->routeIs('admin.orders.*')">
+                    Orders
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.expenses.index')" :active="request()->routeIs('admin.expenses.*')">
+                    Expenses
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.reports.index')" :active="request()->routeIs('admin.reports.*')">
+                    Reports
+                </x-responsive-nav-link>
             @endrole
             
             @role('cashier')
+                <x-responsive-nav-link :href="route('cashier.dashboard')" :active="request()->routeIs('cashier.dashboard')">
+                    <span class="myanmar-text">Dashboard</span>
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('cashier.pos')" :active="request()->routeIs('cashier.pos')">
                     POS
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('cashier.orders.index')" :active="request()->routeIs('cashier.orders.*')">
+                    <span class="myanmar-text">အော်ဒါများ</span>
                 </x-responsive-nav-link>
             @endrole
             
             @role('waiter')
+                <x-responsive-nav-link :href="route('waiter.dashboard')" :active="request()->routeIs('waiter.dashboard')">
+                    <span class="myanmar-text">Dashboard</span>
+                </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('waiter.tables.index')" :active="request()->routeIs('waiter.tables.*')">
-                    Tables
+                    <span class="myanmar-text">စားပွဲများ</span>
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('waiter.orders.index')" :active="request()->routeIs('waiter.orders.*')">
+                    <span class="myanmar-text">ကျွန်ုပ်၏ အော်ဒါများ</span>
                 </x-responsive-nav-link>
             @endrole
         </div>

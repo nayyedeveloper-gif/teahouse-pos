@@ -1,3 +1,27 @@
+<style>
+    @media print {
+        /* Show Myanmar text in print */
+        .myanmar-text {
+            display: inline !important;
+            visibility: visible !important;
+        }
+        
+        /* Hide buttons in print */
+        .btn, button, a.btn {
+            display: none !important;
+        }
+        
+        /* Optimize print layout */
+        body {
+            font-size: 12pt;
+        }
+        
+        .card {
+            page-break-inside: avoid;
+        }
+    }
+</style>
+
 <div class="py-6">
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

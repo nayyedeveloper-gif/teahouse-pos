@@ -74,7 +74,7 @@ echo -e "${GREEN}Database created!${NC}"
 # Step 3: Create Application Directory
 echo -e "${GREEN}[3/15] Setting up application directory...${NC}"
 sudo mkdir -p $APP_DIR
-sudo cp -r /root/teahouse-pos/* $APP_DIR/
+sudo rsync -av --exclude 'node_modules' --exclude 'vendor' /root/teahouse-pos/ $APP_DIR/
 cd $APP_DIR
 
 # Step 4: Set Permissions

@@ -1,7 +1,17 @@
 import './bootstrap';
 
-// Note: Alpine.js is already included in Livewire
-// No need to import it separately to avoid duplicate instances
+// Import Alpine.js for mobile menu and interactive components
+import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
+import collapse from '@alpinejs/collapse';
+
+// Register Alpine plugins
+Alpine.plugin(focus);
+Alpine.plugin(collapse);
+
+// Start Alpine
+window.Alpine = Alpine;
+Alpine.start();
 
 // Service Worker Registration for PWA
 if ('serviceWorker' in navigator) {

@@ -106,16 +106,6 @@
                     ဝင်ရောက်မည်
                 </button>
             </form>
-
-            <!-- Demo Credentials -->
-            <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                <p class="text-xs text-gray-600 font-semibold mb-2">Demo Credentials:</p>
-                <div class="text-xs text-gray-600 space-y-1">
-                    <p><strong>Admin:</strong> admin@tharchocafe.com / password</p>
-                    <p><strong>Cashier:</strong> cashier@tharchocafe.com / password</p>
-                    <p><strong>Waiter:</strong> waiter@tharchocafe.com / password</p>
-                </div>
-            </div>
         </div>
 
         <!-- Footer -->

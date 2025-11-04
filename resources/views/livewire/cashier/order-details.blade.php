@@ -6,6 +6,19 @@
             visibility: visible !important;
         }
         
+        /* Ensure all text sizes are visible in print */
+        .text-sm, .text-xs {
+            display: block !important;
+            visibility: visible !important;
+            font-size: 10pt !important;
+        }
+        
+        /* Show item names with Myanmar */
+        td p, td div {
+            display: block !important;
+            visibility: visible !important;
+        }
+        
         /* Hide buttons in print */
         .btn, button, a.btn {
             display: none !important;
@@ -18,6 +31,11 @@
         
         .card {
             page-break-inside: avoid;
+        }
+        
+        /* Ensure table content is visible */
+        table td, table th {
+            padding: 8px !important;
         }
     }
 </style>

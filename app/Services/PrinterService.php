@@ -14,6 +14,16 @@ use Exception;
 class PrinterService
 {
     /**
+     * Initialize printer with Myanmar Unicode support
+     */
+    private function initializePrinter($connector)
+    {
+        $escposPrinter = new EscposPrinter($connector);
+        // Set character code page for Myanmar Unicode (UTF-8)
+        $escposPrinter->getPrintConnector()->write("\x1B\x74\x10");
+        return $escposPrinter;
+    }
+    /**
      * Print kitchen order items
      */
     public function printKitchenOrder(Order $order, array $items = null)
@@ -48,7 +58,7 @@ class PrinterService
 
         try {
             $connector = new NetworkPrintConnector($printer->ip_address, $printer->port, 2);
-            $escposPrinter = new EscposPrinter($connector);
+            $escposPrinter = $this->initializePrinter($connector);
 
             // Header
             $escposPrinter->setJustification(EscposPrinter::JUSTIFY_CENTER);
@@ -156,7 +166,7 @@ class PrinterService
 
         try {
             $connector = new NetworkPrintConnector($printer->ip_address, $printer->port, 2);
-            $escposPrinter = new EscposPrinter($connector);
+            $escposPrinter = $this->initializePrinter($connector);
 
             // Header
             $escposPrinter->setJustification(EscposPrinter::JUSTIFY_CENTER);
@@ -245,7 +255,7 @@ class PrinterService
 
         try {
             $connector = new NetworkPrintConnector($printer->ip_address, $printer->port);
-            $escposPrinter = new EscposPrinter($connector);
+            $escposPrinter = $this->initializePrinter($connector);
 
             // Print logo if available
             $escposPrinter->setJustification(EscposPrinter::JUSTIFY_CENTER);

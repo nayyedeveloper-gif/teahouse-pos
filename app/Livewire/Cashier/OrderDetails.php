@@ -3,6 +3,7 @@
 namespace App\Livewire\Cashier;
 
 use App\Models\Order;
+use App\Services\PrinterService;
 use Livewire\Component;
 
 class OrderDetails extends Component
@@ -24,8 +25,15 @@ class OrderDetails extends Component
 
     public function printReceipt()
     {
-        // Receipt printing logic will be added later
-        session()->flash('success', 'Receipt sent to printer!');
+        try {
+            $printerService = new PrinterService();
+            $printerService->printReceipt($this->order);
+            
+            session()->flash('success', 'Receipt sent to printer successfully!');
+        } catch (\Exception $e) {
+            logger()->error('Print receipt error: ' . $e->getMessage());
+            session()->flash('error', 'Failed to print receipt: ' . $e->getMessage());
+        }
     }
 
     public function render()

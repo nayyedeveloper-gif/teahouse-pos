@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thar Cho POS</title>
+    <style>
+        body { font-family: system-ui, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background: #0f172a; color: #e2e8f0; }
+        .box { text-align: center; padding: 2rem; }
+        .spinner { width: 40px; height: 40px; border: 3px solid #334155; border-top-color: #10b981; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="spinner"></div>
+        <p>Thar Cho POS ကို စတင်နေပါသည်...</p>
+        <p style="font-size:0.875rem;color:#94a3b8;">Server မတက်သေးပါက start-pos.bat ကို အရင်ဖွင့်ပါ</p>
+    </div>
+    <script>setTimeout(() => { window.location.href = 'http://127.0.0.1:8765/login'; }, 1500);</script>
+</body>
+</html>

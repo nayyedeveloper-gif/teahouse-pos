@@ -1,0 +1,15 @@
+{
+  "name": "tharcho-pos-desktop",
+  "version": "1.0.0",
+  "description": "Thar Cho POS - Windows Desktop Shell (Tauri)",
+  "private": true,
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "build:windows": "tauri build --target x86_64-pc-windows-msvc"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.1.0"
+  }
+}
